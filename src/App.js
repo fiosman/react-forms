@@ -10,6 +10,7 @@ function App() {
   const [staff, setStaff] = useState("");
   const [bio, setBio] = useState("");
   const [emailNotifications, setEmailNotifications] = useState("");
+
   return (
     <>
       <form></form>
