@@ -11,9 +11,24 @@ function App() {
   const [bio, setBio] = useState("");
   const [emailNotifications, setEmailNotifications] = useState("");
 
+  const handleSubmit = () => {};
+
   return (
     <>
-      <form></form>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Name
+          <input value={name} onChange={(e) => setName(e.target.value)} /> <br />
+        </label>
+        <label>
+          Email
+          <input value={email} onChange={(e) => setEmail(e.target.value)} /> <br />
+        </label>
+        <label>
+          Phone Number
+          <input value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} /> <br />
+        </label>
+      </form>
     </>
   );
 }
