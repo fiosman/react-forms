@@ -28,6 +28,14 @@ function App() {
           Phone Number
           <input value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} /> <br />
         </label>
+        <label>
+          Phone type
+          <select value={phoneType} onChange={(e) => setPhoneType(e.target.value)}>
+            <option>Home</option>
+            <option>Work</option>
+            <option>Mobile</option>
+          </select>
+        </label>
       </form>
     </>
   );
