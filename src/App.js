@@ -9,7 +9,7 @@ function App() {
   const [phoneType, setPhoneType] = useState("");
   const [staff, setStaff] = useState("");
   const [bio, setBio] = useState("");
-  const [emailNotifications, setEmailNotifications] = useState("");
+  const [emailChecked, setEmailChecked] = useState(false);
 
   const handleSubmit = () => {};
 
@@ -31,10 +31,26 @@ function App() {
         <label>
           Phone type
           <select value={phoneType} onChange={(e) => setPhoneType(e.target.value)}>
+            {" "}
             <option>Home</option>
             <option>Work</option>
             <option>Mobile</option>
-          </select>
+          </select>{" "}
+          <br />
+        </label>
+        <label>
+          Bio
+          <textarea value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
+          <br />
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            value={emailChecked}
+            onChange={() => setEmailChecked(!emailChecked)}
+            checked={emailChecked}
+          />
+          Checkbox
         </label>
       </form>
     </>
