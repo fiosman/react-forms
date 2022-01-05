@@ -7,7 +7,8 @@ function App() {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneType, setPhoneType] = useState("");
-  const [staff, setStaff] = useState("");
+  const [isInstructor, setIsInstructor] = useState(false);
+  const [isStudent, setIsStudent] = useState(false);
   const [bio, setBio] = useState("");
   const [emailChecked, setEmailChecked] = useState(false);
 
@@ -44,13 +45,30 @@ function App() {
           <br />
         </label>
         <label>
+          Email subscription
           <input
             type="checkbox"
             value={emailChecked}
             onChange={() => setEmailChecked(!emailChecked)}
             checked={emailChecked}
           />
-          Checkbox
+        </label>{" "}
+        <br />
+        <label>
+          <input
+            type="radio"
+            name="staffGroup"
+            value={isInstructor}
+            onChange={() => setIsInstructor(!isInstructor)}
+          />
+          Instructor
+          <input
+            name="staffGroup"
+            type="radio"
+            value={isStudent}
+            onChange={() => setIsStudent(!isStudent)}
+          />
+          Student
         </label>
       </form>
     </>
