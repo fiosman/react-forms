@@ -12,7 +12,17 @@ function App() {
   const [bio, setBio] = useState("");
   const [emailChecked, setEmailChecked] = useState(false);
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`name is ${name}`);
+    console.log(`email is ${email}`);
+    console.log(phoneNumber);
+    console.log(phoneType);
+    console.log(isInstructor);
+    console.log(isStudent);
+    console.log(bio);
+    console.log(emailChecked);
+  };
 
   return (
     <>
@@ -70,6 +80,7 @@ function App() {
           />
           Student
         </label>
+        <input type="submit" value="Send Data" />
       </form>
     </>
   );
