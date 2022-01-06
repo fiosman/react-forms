@@ -16,12 +16,12 @@ function App() {
     e.preventDefault();
     console.log(`name is ${name}`);
     console.log(`email is ${email}`);
-    console.log(phoneNumber);
-    console.log(phoneType);
-    console.log(isInstructor);
-    console.log(isStudent);
-    console.log(bio);
-    console.log(emailChecked);
+    console.log(`phoneNumber is ${phoneNumber}`);
+    console.log(`phoneType is ${phoneType}`);
+    console.log(`is instructor? ${isInstructor}`);
+    console.log(`is student? ${isStudent}`);
+    console.log(`bio is ${bio}`);
+    console.log(`email subscription? ${emailChecked}`);
   };
 
   return (
