@@ -77,7 +77,12 @@ function App() {
         </label>
         <label>
           Phone Number
-          <input value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} /> <br />
+          <input
+            value={phoneNumber}
+            placeholder="e.g. 123-456-7891"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />{" "}
+          <br />
         </label>
         <label>
           Phone type
