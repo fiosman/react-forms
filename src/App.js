@@ -81,7 +81,11 @@ function App() {
         </label>
         <label>
           Phone type
-          <select value={phoneType} onChange={(e) => setPhoneType(e.target.value)}>
+          <select
+            disabled={phoneNumber.length === 0}
+            value={phoneType}
+            onChange={(e) => setPhoneType(e.target.value)}
+          >
             {" "}
             <option>Home</option>
             <option>Work</option>
