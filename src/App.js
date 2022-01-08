@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
+import dayjs from "dayjs";
 
 function App() {
   const [name, setName] = useState("");
@@ -26,6 +27,7 @@ function App() {
       isStudent,
       bio,
       emailChecked,
+      dateSubmitted: dayjs(new Date()).format(`DD/MM/YYYY`),
     });
 
     setName("");
