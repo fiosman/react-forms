@@ -10,21 +10,60 @@ function App() {
   const [isStudent, setIsStudent] = useState(false);
   const [bio, setBio] = useState("");
   const [emailChecked, setEmailChecked] = useState(false);
+  const [validationErrors, setValidationErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`name is ${name}`);
-    console.log(`email is ${email}`);
-    console.log(`phoneNumber is ${phoneNumber}`);
-    console.log(`phoneType is ${phoneType}`);
-    console.log(`is instructor? ${isInstructor}`);
-    console.log(`is student? ${isStudent}`);
-    console.log(`bio is ${bio}`);
-    console.log(`email subscription? ${emailChecked}`);
+    const errors = validateForm();
+    if (errors.length > 0) return setValidationErrors(errors);
+
+    console.log({
+      name,
+      email,
+      phoneNumber,
+      phoneType,
+      isInstructor,
+      isStudent,
+      bio,
+      emailChecked,
+    });
+
+    setName("");
+    setEmail("");
+    setPhoneNumber("");
+    setPhoneType("");
+    setIsInstructor(false);
+    setIsStudent(false);
+    setBio("");
+    setEmailChecked(false);
+    setValidationErrors([]);
+  };
+
+  const validateForm = () => {
+    let errors = [];
+    const validPhoneNumber = phoneNumber.match(
+      /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
+    );
+    const validEmail = email.match(/^\S+@\S+\.\S+$/);
+
+    if (name.length === 0) errors.push("Name is required");
+    if (bio.length > 280) errors.push("Bio cannot exceed 280 characters");
+    if (!validEmail) errors.push("Email must be of valid format");
+    if (!validPhoneNumber) errors.push("Phone number must be valid format");
+    if (validPhoneNumber && phoneType.length === 0) errors.push("Phone type must be selected");
+
+    return errors;
   };
 
   return (
     <>
+      {validationErrors.length > 0 && (
+        <ul>
+          {validationErrors.map((validationError, index) => (
+            <li key={index}>{validationError}</li>
+          ))}
+        </ul>
+      )}
       <form onSubmit={handleSubmit}>
         <label>
           Name
